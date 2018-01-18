@@ -162,7 +162,7 @@ function node_conversion_template_load($id) {
  */
 function node_conversion_node_operations() {
   $operations = array();
-  $templates = node_conversion_load_all_templates();
+  $templates = node_conversion_render_template();
   foreach ($templates as $row) {
     $access = node_conversion_check_template_permission_user(array('template_id' => $row->machine_name));
     if ($access) {
@@ -392,7 +392,7 @@ function node_conversion_load_template($template_id) {
 /**
  * Loads all templates.
  */
-function node_conversion_load_all_templates() {
+function node_conversion_render_template() {
   // @FIXME
 // Most CTools APIs have been moved into core.
 // 

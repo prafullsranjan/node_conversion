@@ -6,6 +6,7 @@
 namespace Drupal\node_conversion\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Render;
 
 /**
  * Default controller for the node_conversion module.
@@ -21,8 +22,9 @@ class DefaultController extends ControllerBase {
       t("Dest type"),
       t("Operations"),
     ];
-    $templates = node_conversion_load_all_templates();
-    foreach ($templates as $row) {
+    $templates = node_conversion_render_template();
+
+    foreach ($templates as $row => $value) {
       $can_delete = isset($row->nctid);
       $name = l($row->name, 'admin/structure/node_conversion_templates/' . $row->machine_name);
       $operations = [];
@@ -38,9 +40,14 @@ class DefaultController extends ControllerBase {
         implode(' ', $operations),
       ];
     }
-    $output = theme('table', ['header' => $headers, 'rows' => $rows]);
+    $output = array(
+                '#theme' => 'table',
+                '#header' => $headers,
+                '#rows' => $rows,
+    );
+    //theme('table', ['header' => $headers, 'rows' => $rows]);
 
-    return $output;
+    return \Drupal::service('renderer')->render($output);
   }
 
   public function node_conversion_template_info($machine_name) {
@@ -64,9 +71,14 @@ class DefaultController extends ControllerBase {
     if (!empty($data['hook_options'])) {
       $rows[] = [t("Hook options"), print_r($data['hook_options'], TRUE)];
     }
-    $output .= theme('table', ['header' => $headers, 'rows' => $rows]);
+    $output = array(
+                '#theme' => 'table',
+                '#header' => $headers,
+                '#rows' => $rows,
+    );
+    //theme('table', ['header' => $headers, 'rows' => $rows]);
 
-    return $output;
+    return \Drupal::service('renderer')->render($output);
   }
 
 }

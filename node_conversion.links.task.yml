@@ -1,7 +1,7 @@
 node_conversion.conversion_form:
   route_name: node_conversion.conversion_form
   title: Convert
-  weight: 6
+  weight: 9
 node_conversion.templates:
   route_name: node_conversion.templates
   title: List

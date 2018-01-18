@@ -1,4 +1,4 @@
-name: 'Node Convert'
+name: 'Node Conversion'
 description: 'Converts one or more nodes between different node types.'
 core: 8.x
 dependencies: {  }
