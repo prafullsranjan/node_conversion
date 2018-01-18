@@ -1,0 +1,13 @@
+node_conversion.conversion_form:
+  route_name: node_conversion.conversion_form
+  title: Convert
+  weight: 6
+node_conversion.templates:
+  route_name: node_conversion.templates
+  title: List
+  base_route: node_conversion.templates
+node_conversion.add_template:
+  route_name: node_conversion.add_template
+  title: 'Add template'
+  weight: 1
+  base_route: node_conversion.templates

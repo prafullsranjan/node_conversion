@@ -1,0 +1,36 @@
+node_conversion.conversion_form:
+  path: '/node/{node}/convert'
+  defaults:
+    _title: Convert
+    _form: \Drupal\node_conversion\Form\NodeConversionConversionForm
+  requirements:
+    _custom_access: '\Drupal\node_conversion\Form\NodeConversionConversionForm::node_conversion_check_access'
+node_conversion.templates:
+  path: /admin/structure/node_conversion_templates
+  defaults:
+    _title: 'Node Convert templates'
+    _controller: '\Drupal\node_conversion\Controller\DefaultController::node_conversion_templates'
+  requirements:
+    _permission: 'administer conversion'
+node_conversion.add_template:
+  path: '/admin/structure/node_conversion_templates/edit/{template}'
+  defaults:
+    template: null
+    _title: 'Edit template'
+    _form: \Drupal\node_conversion\Form\NodeConversionAddTemplate
+  requirements:
+    _permission: 'administer conversion'
+node_conversion.template_info:
+  path: '/admin/structure/node_conversion_templates/{machine_name}'
+  defaults:
+    _title: 'Template info'
+    _controller: '\Drupal\node_conversion\Controller\DefaultController::node_conversion_template_info'
+  requirements:
+    _permission: 'administer conversion'
+node_conversion.template_delete_confirm:
+  path: '/admin/structure/node_conversion_templates/delete/{template_id}'
+  defaults:
+    _title: 'Delete template'
+    _form: \Drupal\node_conversion\Form\NodeConversionTemplateDeleteConfirm
+  requirements:
+    _permission: 'administer conversion'

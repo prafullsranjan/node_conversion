@@ -1,0 +1,5 @@
+node_conversion.templates:
+  route_name: node_conversion.templates
+  title: 'Node Convert templates'
+  description: 'List of templates used for converting nodes using Actions and Node Operations.'
+  parent: system.admin_structure

@@ -1,0 +1,5 @@
+name: 'Node Convert'
+description: 'Converts one or more nodes between different node types.'
+core: 8.x
+dependencies: {  }
+type: module
