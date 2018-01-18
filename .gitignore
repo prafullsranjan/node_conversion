@@ -7,6 +7,7 @@ sites/*/files
 sites/*/private
 
 # Ignore default text files
+.DS_Store
 robots.txt
 /CHANGELOG.txt
 /COPYRIGHT.txt
